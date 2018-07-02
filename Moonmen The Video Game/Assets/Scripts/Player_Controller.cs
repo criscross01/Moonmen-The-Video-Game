@@ -7,6 +7,9 @@ public class Player_Controller : MonoBehaviour {
     public int speed = 8;
     public int jump = 3;
 
+    //Movement vars
+    Vector3 direction;
+
     //Used for time to jump
     public double jumpTime = 1;
     double time1;
@@ -36,16 +39,17 @@ public class Player_Controller : MonoBehaviour {
         //This gets the Input from the user
         float xInput = Input.GetAxis("Horizontal");
 
+
         //Determines which way that the "moonman" is facing
         if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
-            trans.eulerAngles = new Vector3(0, 0);
+            direction = new Vector3(0, 0);
         }
         else if (Input.GetKey(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            trans.eulerAngles = new Vector3(0, 180);
+            direction = new Vector3(0, 180);
         }
-
+        trans.eulerAngles = direction;
 
         //Basically makes the "moonman" go the right way
         if (xInput < 0)
@@ -54,17 +58,14 @@ public class Player_Controller : MonoBehaviour {
         }
 
 
-
         //Gets final speed that the "moonman" will go at
         float xVec = xInput * (float)(speed * .01);
-
 
 
         //Moves the "moonman" horizontally
         trans.Translate(new Vector3(xVec, 0));
 
         
-
         //Decides whether the "moonman" should jump or not
         if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && jumpTime <= Time.time-time1)
         {
