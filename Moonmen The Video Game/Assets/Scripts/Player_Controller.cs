@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Player_Controller : MonoBehaviour {
 
-    public int speed = 8;
-    public int jump = 3;
+    public int speed;
+    public int jump;
 
     //Movement vars
     Vector3 direction;
 
     //Used for time to jump
-    public double jumpTime = 1;
+    public double jumpTime;
     double time1;
 
     //Declares Object Components
