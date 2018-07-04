@@ -1,12 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Player_Controller : MonoBehaviour {
 
-    public int speed;
-    public float jump;
-
+    public int maxSpeed;
+    public float jumpVelocity;
+    public float fallMultiplyer;
+    public float lowJumpMultiplyer;
+    
     //Movement vars
     Vector3 direction;
 
@@ -78,18 +78,36 @@ public class Player_Controller : MonoBehaviour {
 
 
         //Gets final speed that the "moonman" will go at
-        float xVec = xInput * (float)(speed * .01);
+        float xVec = xInput * (float)(maxSpeed * .01);
 
 
         //Moves the "moonman" horizontally
         trans.Translate(new Vector3(xVec, 0));
 
-        
+        /*
         //Decides whether the "moonman" should jump or not
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && canJump)
         {
             rigidbody2D.AddForce(new Vector2(0, jump * 100));
             time1 = Time.time;
         }
-    }
+        */
+        Debug.Log(rigidbody2D.velocity.y);
+        if (Input.GetButtonDown("Jump"))
+        {
+            rigidbody2D.velocity = Vector2.up * jumpVelocity;
+        }
+
+
+        if (rigidbody2D.velocity.y < 0)
+        {
+            rigidbody2D.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplyer - 1) * Time.deltaTime;
+        }
+
+        if (rigidbody2D.velocity.y > 0 && !Input.GetButton("Jump"))
+        {
+            rigidbody2D.velocity += Vector2.up * Physics2D.gravity.y * lowJumpMultiplyer * Time.deltaTime;
+        }
+     }
 }
+ 
