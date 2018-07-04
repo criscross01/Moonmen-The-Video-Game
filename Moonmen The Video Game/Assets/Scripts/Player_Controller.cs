@@ -95,8 +95,8 @@ public class Player_Controller : MonoBehaviour
             time1 = Time.time;
         }
         */
-        Debug.Log(rigidbody2D.velocity.y);
-        if (Input.GetButtonDown("Jump"))
+        
+        if (Input.GetButtonDown("Jump") && canJump)
         {
             rigidbody2D.velocity = Vector2.up * jumpVelocity;
         }
