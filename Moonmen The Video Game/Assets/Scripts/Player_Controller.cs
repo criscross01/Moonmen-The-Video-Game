@@ -5,18 +5,32 @@ using UnityEngine;
 public class Player_Controller : MonoBehaviour {
 
     public int speed;
-    public int jump;
+    public float jump;
 
     //Movement vars
     Vector3 direction;
 
     //Used for time to jump
-    public double jumpTime;
     double time1;
+	bool canJump = true;
 
     //Declares Object Components
     Transform trans;
     Rigidbody2D rigidbody2D;
+
+	//Called when player is touching something
+	void OnCollisionEnter2D()
+	{
+		canJump = true;
+	}
+
+	//Called when player not touching something
+	void OnCollisionExit2D()
+	{
+		canJump = false;
+	}
+
+
 
     // Use this for initialization
     void Start () {
@@ -27,10 +41,14 @@ public class Player_Controller : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        movement();
+		
     }
 
-
+	void FixedUpdate(){
+		
+		//Updates movement every frame
+		movement ();
+	}
 
 
     //Function that deals with all the player movement
@@ -45,11 +63,12 @@ public class Player_Controller : MonoBehaviour {
         {
             direction = new Vector3(0, 0);
         }
-        else if (Input.GetKey(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             direction = new Vector3(0, 180);
         }
         trans.eulerAngles = direction;
+
 
         //Basically makes the "moonman" go the right way
         if (xInput < 0)
@@ -67,7 +86,7 @@ public class Player_Controller : MonoBehaviour {
 
         
         //Decides whether the "moonman" should jump or not
-        if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && jumpTime <= Time.time-time1)
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && canJump)
         {
             rigidbody2D.AddForce(new Vector2(0, jump * 100));
             time1 = Time.time;
