@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 75786300}
   - component: {fileID: 75786295}
   - component: {fileID: 75786297}
+  - component: {fileID: 75786301}
   - component: {fileID: 75786298}
   - component: {fileID: 75786299}
   m_Layer: 8
@@ -189,7 +190,7 @@ BoxCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 75786294}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -219,10 +220,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc082f02d2bd284b9927e59deecca93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 1
-  jumpVelocity: 7
-  fallMultiplyer: 2.5
-  lowJumpMultiplyer: 2
+  speed: 8
+  jump: 2
 --- !u!212 &75786300
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -267,6 +266,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!68 &75786301
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 75786294}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.85}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -1.25, y: 0}
+  - {x: 1, y: 0}
 --- !u!1 &176207837
 GameObject:
   m_ObjectHideFlags: 0
@@ -868,6 +884,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!212 &419140239
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -881,6 +898,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -1600,6 +1618,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!212 &1009322948
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1613,6 +1632,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
