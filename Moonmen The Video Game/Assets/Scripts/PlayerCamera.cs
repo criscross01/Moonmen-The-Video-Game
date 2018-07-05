@@ -7,6 +7,7 @@ public class PlayerCamera : MonoBehaviour {
     public Transform target;
     public float damping = 0.1f;
     public Vector3 offsetPosition;
+    public float yPosRestriction = -5;
 
     float offsetZ;
     Vector3 lastTargetPosition;
@@ -26,6 +27,9 @@ public class PlayerCamera : MonoBehaviour {
     {
         Vector3 aheadTargetPos = target.position + lookAheadPos + Vector3.forward * offsetZ;
         Vector3 newPos = Vector3.SmoothDamp(transform.position, aheadTargetPos, ref currentVelocity, damping) + offsetPosition;
+
+        newPos = new Vector3(newPos.x, Mathf.Clamp(newPos.y, yPosRestriction, Mathf.Infinity), newPos.z);
+
         transform.position = newPos;
 
 	}

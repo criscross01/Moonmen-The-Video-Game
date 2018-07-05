@@ -222,7 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 8
   jumpVelocity: 6
-  fallMultiplyer: 2.5
+  fallMultiplyer: 1.7
   lowJumpMultiplyer: 2
 --- !u!212 &75786300
 SpriteRenderer:
@@ -257,7 +257,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1336346231
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4e8af074af136da42b03430dbe14787e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -494,6 +494,7 @@ MonoBehaviour:
   target: {fileID: 75786296}
   damping: 0.1
   offsetPosition: {x: 0, y: 0, z: 0}
+  yPosRestriction: -5
 --- !u!1 &297267255
 GameObject:
   m_ObjectHideFlags: 0
@@ -1060,7 +1061,7 @@ GameObject:
   m_Component:
   - component: {fileID: 483647967}
   - component: {fileID: 483647968}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Moon Back (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1112,8 +1113,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -939129203
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9d21249cb2bbea84494ba9f896cd891f, type: 3}
   m_Color: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 1}
@@ -1282,8 +1283,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 1.8337997, y: 4.148895}
-  - {x: 1.8332644, y: -1.2541506}
+  - {x: 2.3073363, y: 2.3358383}
+  - {x: -0.67430115, y: -0.737651}
 --- !u!61 &570398684
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1296,7 +1297,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.079553604, y: 0.909158}
+  m_Offset: {x: -0.23824024, y: 0.9921699}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1307,7 +1308,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.4313393, y: 2.0448775}
+  m_Size: {x: 3.3292198, y: 1.9643105}
   m_EdgeRadius: 0
 --- !u!1 &821489057
 GameObject:
@@ -1418,7 +1419,7 @@ GameObject:
   m_Component:
   - component: {fileID: 849167435}
   - component: {fileID: 849167436}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Moon Back (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1470,8 +1471,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -939129203
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9d21249cb2bbea84494ba9f896cd891f, type: 3}
   m_Color: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 1}
@@ -1492,7 +1493,7 @@ GameObject:
   m_Component:
   - component: {fileID: 921629151}
   - component: {fileID: 921629150}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Moon Back(0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1531,8 +1532,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -939129203
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9d21249cb2bbea84494ba9f896cd891f, type: 3}
   m_Color: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 1}
@@ -1804,7 +1805,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1088998712}
   - component: {fileID: 1088998713}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Moon Back (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1856,8 +1857,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -939129203
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9d21249cb2bbea84494ba9f896cd891f, type: 3}
   m_Color: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 1}
@@ -1978,7 +1979,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1181867498}
   - component: {fileID: 1181867499}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Moon Back (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2030,8 +2031,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -939129203
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9d21249cb2bbea84494ba9f896cd891f, type: 3}
   m_Color: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 1}
@@ -2272,7 +2273,7 @@ GameObject:
   - component: {fileID: 1435390210}
   - component: {fileID: 1435390209}
   - component: {fileID: 1435390212}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2351,6 +2352,7 @@ MonoBehaviour:
   target: {fileID: 75786296}
   damping: 0.1
   offsetPosition: {x: 0, y: 0.3, z: 0}
+  yPosRestriction: -5
 --- !u!1 &1535551559
 GameObject:
   m_ObjectHideFlags: 0
@@ -3112,7 +3114,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1910643596}
   - component: {fileID: 1910643597}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Moon Back (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3164,8 +3166,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -939129203
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9d21249cb2bbea84494ba9f896cd891f, type: 3}
   m_Color: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 1}
@@ -3305,7 +3307,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1928969047}
   - component: {fileID: 1928969048}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Moon Back (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3357,8 +3359,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -939129203
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9d21249cb2bbea84494ba9f896cd891f, type: 3}
   m_Color: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 1}
@@ -3691,7 +3693,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2077474388}
   - component: {fileID: 2077474387}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Moon Back(1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3730,8 +3732,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -939129203
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9d21249cb2bbea84494ba9f896cd891f, type: 3}
   m_Color: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 1}
