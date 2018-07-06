@@ -2,7 +2,7 @@
 
 public class Player_Controller : MonoBehaviour
 {
-
+    public float initSpeed;
     public float maxSpeed;
     public float jumpVelocity;
     public float fallMultiplyer;
@@ -60,8 +60,10 @@ public class Player_Controller : MonoBehaviour
     //Function that deals with all the player movement
     void movement()
     {
-        //This gets the Input from the user
-        float xInput = Input.GetAxis("Horizontal");
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            speed = initSpeed;
+        }
 
         //Determines which way that the "moonman" is facing
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
@@ -79,7 +81,7 @@ public class Player_Controller : MonoBehaviour
             speed = 0;
         }
 
-        Debug.Log(speed);
+
 
         if(speed > maxSpeed)
         {
@@ -87,18 +89,6 @@ public class Player_Controller : MonoBehaviour
         }
 
         trans.eulerAngles = direction;
-
-
-        //Basically makes the "moonman" go the right way
-        if (xInput < 0)
-        {
-            xInput *= -1;
-        }
-
-
-        //Gets final speed that the "moonman" will go at
-        float xVec = xInput * maxSpeed;
-
         
         //Moves the "moonman" horizontally
         trans.Translate(Vector3.right * speed);
@@ -116,7 +106,6 @@ public class Player_Controller : MonoBehaviour
         {
             rigidbody2D.velocity = Vector2.up * jumpVelocity;
         }
-
 
         if (rigidbody2D.velocity.y < 0)
         {
