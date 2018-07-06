@@ -226,6 +226,7 @@ MonoBehaviour:
   fallMultiplyer: 1.7
   lowJumpMultiplyer: 2
   accelerationMultiplyer: 0.005
+  decelerationMultiplyer: 0.007
 --- !u!212 &75786300
 SpriteRenderer:
   m_ObjectHideFlags: 0

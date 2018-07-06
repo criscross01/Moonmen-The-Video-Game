@@ -8,6 +8,7 @@ public class Player_Controller : MonoBehaviour
     public float fallMultiplyer;
     public float lowJumpMultiplyer;
     public float accelerationMultiplyer;
+    public float decelerationMultiplyer;
 
     float speed;
 
@@ -78,7 +79,7 @@ public class Player_Controller : MonoBehaviour
         }
         else
         {
-            speed = 0;
+            speed -= decelerationMultiplyer;
         }
 
 
@@ -86,6 +87,10 @@ public class Player_Controller : MonoBehaviour
         if(speed > maxSpeed)
         {
             speed = maxSpeed;
+        }
+        else if (speed < 0)
+        {
+            speed = 0;
         }
 
         trans.eulerAngles = direction;
