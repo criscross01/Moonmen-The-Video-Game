@@ -220,10 +220,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc082f02d2bd284b9927e59deecca93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 8
+  maxSpeed: 0.15
   jumpVelocity: 6
   fallMultiplyer: 1.7
   lowJumpMultiplyer: 2
+  accelerationMultiplyer: 0.005
 --- !u!212 &75786300
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -3,10 +3,13 @@
 public class Player_Controller : MonoBehaviour
 {
 
-    public int maxSpeed;
+    public float maxSpeed;
     public float jumpVelocity;
     public float fallMultiplyer;
     public float lowJumpMultiplyer;
+    public float accelerationMultiplyer;
+
+    float speed;
 
     //Movement vars
     Vector3 direction;
@@ -43,14 +46,14 @@ public class Player_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        movement();
     }
 
     void FixedUpdate()
     {
 
         //Updates movement every frame
-        movement();
+        
     }
 
 
@@ -60,16 +63,29 @@ public class Player_Controller : MonoBehaviour
         //This gets the Input from the user
         float xInput = Input.GetAxis("Horizontal");
 
-
         //Determines which way that the "moonman" is facing
-        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             direction = new Vector3(0, 0);
+            speed += accelerationMultiplyer;
         }
-        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+        else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             direction = new Vector3(0, 180);
+            speed += accelerationMultiplyer;
         }
+        else
+        {
+            speed = 0;
+        }
+
+        Debug.Log(speed);
+
+        if(speed > maxSpeed)
+        {
+            speed = maxSpeed;
+        }
+
         trans.eulerAngles = direction;
 
 
@@ -81,11 +97,11 @@ public class Player_Controller : MonoBehaviour
 
 
         //Gets final speed that the "moonman" will go at
-        float xVec = xInput * (float)(maxSpeed * .01);
+        float xVec = xInput * maxSpeed;
 
-
+        
         //Moves the "moonman" horizontally
-        trans.Translate(new Vector3(xVec, 0));
+        trans.Translate(Vector3.right * speed);
 
         /*
         //Decides whether the "moonman" should jump or not
