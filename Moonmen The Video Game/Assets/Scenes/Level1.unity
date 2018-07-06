@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 75786297}
   - component: {fileID: 75786298}
   - component: {fileID: 75786299}
+  - component: {fileID: 75786301}
   m_Layer: 8
   m_Name: Moonman
   m_TagString: Untagged
@@ -272,6 +273,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!68 &75786301
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 75786294}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.82}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.5, y: 0}
+  - {x: 0.5, y: 0}
 --- !u!1 &87383712
 GameObject:
   m_ObjectHideFlags: 0

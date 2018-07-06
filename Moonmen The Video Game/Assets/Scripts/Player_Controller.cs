@@ -24,13 +24,13 @@ public class Player_Controller : MonoBehaviour
     Rigidbody2D rigidbody2D;
 
     //Called when player is touching something
-    void OnCollisionEnter2D()
+    void OnTriggerEnter2D()
     {
         canJump = true;
     }
 
     //Called when player not touching something
-    void OnCollisionExit2D()
+    void OnTriggerExit2D()
     {
         canJump = false;
     }
@@ -48,13 +48,6 @@ public class Player_Controller : MonoBehaviour
     void Update()
     {
         movement();
-    }
-
-    void FixedUpdate()
-    {
-
-        //Updates movement every frame
-        
     }
 
 
@@ -77,7 +70,7 @@ public class Player_Controller : MonoBehaviour
             direction = new Vector3(0, 180);
             speed += accelerationMultiplyer;
         }
-        else
+        else if (canJump)
         {
             speed -= decelerationMultiplyer;
         }
