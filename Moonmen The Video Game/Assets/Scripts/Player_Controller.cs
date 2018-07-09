@@ -23,10 +23,16 @@ public class Player_Controller : MonoBehaviour
     Transform trans;
     Rigidbody2D rigidbody2D;
 
+
     //Called when player is touching something
-    void OnTriggerEnter2D()
+    void OnTriggerEnter2D(Collider2D collider)
     {
         canJump = true;
+        
+        if (collider.CompareTag("Respawn"))
+        {
+            respawn();
+        }
     }
 
     //Called when player not touching something
@@ -114,5 +120,12 @@ public class Player_Controller : MonoBehaviour
         {
             rigidbody2D.velocity += Vector2.up * Physics2D.gravity.y * lowJumpMultiplyer * Time.deltaTime;
         }
+    }
+
+    void respawn()
+    {
+        Instantiate()
+        Destroy(GameObject.Find("Moonman"));
+        
     }
 }
