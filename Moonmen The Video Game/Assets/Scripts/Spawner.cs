@@ -4,15 +4,34 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour {
     
-    public GameObject moonman;
+    public GameObject Moonman;
+    public GameObject Camera;
+    public GameObject Background;
+
+    private PlayerCamera camera;
+    private PlayerCamera background;
+    private Player_Controller pc;
+
+    private GameObject player;
+
+    private void Start()
+    {
+        camera = Camera.GetComponent<PlayerCamera>();
+        background = Background.GetComponent<PlayerCamera>();
+        pc = Moonman.GetComponent<Player_Controller>();
+        pc.spawner = this;
+
+        spawn();
+    }
 
     public void spawn()
     {
 
-        Instantiate(moonman);
+        player = Instantiate(Moonman);
 
-         PlayerCamera cam = GameObject.Find("Main Camera");
-         
+        camera.target = player.transform;
+
+        background.target = player.transform;
 
     }
 

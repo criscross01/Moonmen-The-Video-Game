@@ -2,6 +2,8 @@
 
 public class Player_Controller : MonoBehaviour
 {
+    public Spawner spawner;
+
     public float initSpeed;
     public float maxSpeed;
     public float jumpVelocity;
@@ -42,12 +44,16 @@ public class Player_Controller : MonoBehaviour
     }
 
 
+    Spawner spawn;
 
     // Use this for initialization
     void Start()
     {
         trans = gameObject.GetComponent<Transform>();
         rigidbody2D = gameObject.GetComponent<Rigidbody2D>();
+
+        spawn = spawner.GetComponent<Spawner>();
+
     }
 
     // Update is called once per frame
@@ -124,10 +130,9 @@ public class Player_Controller : MonoBehaviour
 
     void die()
     {
-        
-
 
         Destroy(GameObject.Find("Moonman"));
+        spawn.spawn();
         
     }
 }

@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1768231409436688}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.16711539, z: 0}
+  m_LocalPosition: {x: 0, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -136,13 +136,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc082f02d2bd284b9927e59deecca93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initSpeed: 1
-  maxSpeed: 0
-  jumpVelocity: 0
-  fallMultiplyer: 0
-  lowJumpMultiplyer: 0
-  accelerationMultiplyer: 0
-  decelerationMultiplyer: 0
+  spawner: {fileID: 0}
+  initSpeed: 0.2
+  maxSpeed: 0.2
+  jumpVelocity: 1
+  fallMultiplyer: 1
+  lowJumpMultiplyer: 1
+  accelerationMultiplyer: 1
+  decelerationMultiplyer: 1
 --- !u!212 &212397919939674646
 SpriteRenderer:
   m_ObjectHideFlags: 1
