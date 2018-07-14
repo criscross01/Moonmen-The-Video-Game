@@ -31,7 +31,7 @@ public class Player_Controller : MonoBehaviour
         
         if (collider.CompareTag("Respawn"))
         {
-            respawn();
+            die();
         }
     }
 
@@ -122,9 +122,11 @@ public class Player_Controller : MonoBehaviour
         }
     }
 
-    void respawn()
+    void die()
     {
-        Instantiate()
+        
+
+
         Destroy(GameObject.Find("Moonman"));
         
     }
