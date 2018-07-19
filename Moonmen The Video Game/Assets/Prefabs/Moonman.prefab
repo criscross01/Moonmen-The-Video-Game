@@ -137,13 +137,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawner: {fileID: 0}
-  initSpeed: 0.2
-  maxSpeed: 0.2
-  jumpVelocity: 1
-  fallMultiplyer: 1
-  lowJumpMultiplyer: 1
-  accelerationMultiplyer: 1
-  decelerationMultiplyer: 1
+  initSpeed: 0.05
+  maxSpeed: 0.085
+  jumpVelocity: 6
+  fallMultiplyer: 1.2
+  lowJumpMultiplyer: 2
+  accelerationMultiplyer: 0.0006
+  decelerationMultiplyer: 0.003
 --- !u!212 &212397919939674646
 SpriteRenderer:
   m_ObjectHideFlags: 1
