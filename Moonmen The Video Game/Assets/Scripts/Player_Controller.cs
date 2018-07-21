@@ -19,7 +19,7 @@ public class Player_Controller : MonoBehaviour
 
     //Used for time to jump
     double time1;
-    bool canJump = true;
+    bool canJump = false;
 
     //Declares Object Components
     Transform trans;
@@ -32,7 +32,7 @@ public class Player_Controller : MonoBehaviour
         canJump = true;
         
         if (collider.CompareTag("Respawn"))
-        {
+        { 
             die();
         }
     }
@@ -107,7 +107,7 @@ public class Player_Controller : MonoBehaviour
         //Decides whether the "moonman" should jump or not
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && canJump)
         {
-            rigidbody2D.AddForce(new Vector2(0, jump * 100));
+            rigidbody2D.AddForce(new Ve]ctor2(0, jump * 100));
             time1 = Time.time;
         }
         */
@@ -131,7 +131,7 @@ public class Player_Controller : MonoBehaviour
     void die()
     {
 
-        Destroy(GameObject.Find("Moonman"));
+        Destroy(this.gameObject);
         spawn.spawn();
         
     }
