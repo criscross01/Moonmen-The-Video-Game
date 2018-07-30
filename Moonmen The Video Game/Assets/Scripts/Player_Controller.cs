@@ -133,6 +133,6 @@ public class Player_Controller : MonoBehaviour
 
         Destroy(this.gameObject);
         spawn.spawn();
-        
+
     }
 }
