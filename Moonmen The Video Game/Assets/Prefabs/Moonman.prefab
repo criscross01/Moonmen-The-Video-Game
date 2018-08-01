@@ -144,6 +144,7 @@ MonoBehaviour:
   lowJumpMultiplyer: 2
   accelerationMultiplyer: 0.0006
   decelerationMultiplyer: 0.003
+  deathTimer: 1.8
 --- !u!212 &212397919939674646
 SpriteRenderer:
   m_ObjectHideFlags: 1

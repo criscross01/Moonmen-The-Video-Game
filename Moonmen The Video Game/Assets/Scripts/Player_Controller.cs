@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class Player_Controller : MonoBehaviour
 {
@@ -11,6 +14,11 @@ public class Player_Controller : MonoBehaviour
     public float lowJumpMultiplyer;
     public float accelerationMultiplyer;
     public float decelerationMultiplyer;
+    public float deathTimer;
+
+    private GameObject deathScreen;
+    private Image image;
+    private GameObject player;
 
     float speed;
 
@@ -54,12 +62,17 @@ public class Player_Controller : MonoBehaviour
 
         spawn = spawner.GetComponent<Spawner>();
 
+        deathScreen = GameObject.Find("DeathScreen");
+
+        GameObject imageObject = GameObject.FindGameObjectWithTag("FadeToBlackTag");
+        image = imageObject.GetComponent<Image>();
     }
 
     // Update is called once per frame
     void Update()
     {
         movement();
+        player = GameObject.Find("Moonman(Clone)");
     }
 
 
@@ -128,11 +141,29 @@ public class Player_Controller : MonoBehaviour
         }
     }
 
+    
     void die()
     {
+        StartCoroutine(waitTimer());
+        
+    }
 
+    IEnumerator waitTimer()
+    {
+        deathScreen.GetComponent<Canvas>().enabled = true;
+        image.CrossFadeAlpha(0.8f, 0.0f, true);
+        player.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        player.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        player.gameObject.GetComponent<Player_Controller>().enabled = false;
+        image.CrossFadeAlpha(1.0f, 3.0f, true);
+        yield return new WaitForSeconds(deathTimer);
+        //image.CrossFadeAlpha(0.8f, 5.0f, true);
+        yield return new WaitForSeconds(deathTimer);
+        deathScreen.GetComponent<Canvas>().enabled = false;
         Destroy(this.gameObject);
         spawn.spawn();
-
     }
+
 }
+
+

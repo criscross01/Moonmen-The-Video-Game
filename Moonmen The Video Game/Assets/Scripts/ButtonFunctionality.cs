@@ -4,6 +4,10 @@ using UnityEngine.SceneManagement;
 public class ButtonFunctionality : MonoBehaviour
 {
 
+    public Transform canvas;
+
+
+    //Main Menu options.
     public void StartButton ()
     {
         SceneManager.LoadScene("Level1");
@@ -14,7 +18,7 @@ public class ButtonFunctionality : MonoBehaviour
         SceneManager.LoadScene("OptionsMenu");
     }
 
-    public void BackButton()
+    public void BackButton ()
     {
         SceneManager.LoadScene("MainMenu");
     }
@@ -23,4 +27,25 @@ public class ButtonFunctionality : MonoBehaviour
     {
         Application.Quit();
     }
+
+
+
+    //Pause Menu options.
+    public void ResumeButton ()
+    {
+        canvas.gameObject.SetActive(false);
+    }
+
+    public void PauseOptionsButton()
+    {
+        //WIP
+    }
+
+
+    public void MainMenuButton()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+
 }
