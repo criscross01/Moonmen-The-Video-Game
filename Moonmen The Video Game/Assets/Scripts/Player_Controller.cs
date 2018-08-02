@@ -1,7 +1,8 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class Player_Controller : MonoBehaviour
 {
@@ -42,6 +43,10 @@ public class Player_Controller : MonoBehaviour
         if (collider.CompareTag("Respawn"))
         { 
             die();
+        }
+        else if (collider.CompareTag("TunnelTag"))
+        {
+            ending();
         }
     }
 
@@ -164,6 +169,22 @@ public class Player_Controller : MonoBehaviour
         spawn.spawn();
     }
 
+
+    void ending()
+    {
+        StartCoroutine(nextLevel());
+    }
+
+    IEnumerator nextLevel()
+    {
+        deathScreen.GetComponent<Canvas>().enabled = true;
+        deathScreen.GetComponentInChildren<Text>().enabled = false;
+        image.CrossFadeAlpha(0.8f, 0.0f, true);
+        image.CrossFadeAlpha(1.0f, 2.0f, true);
+        player.gameObject.GetComponent<Player_Controller>().enabled = false;
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("Credits");
+    }
 }
 
 
