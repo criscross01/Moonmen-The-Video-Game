@@ -183,7 +183,7 @@ public class Player_Controller : MonoBehaviour
         image.CrossFadeAlpha(1.0f, 2.0f, true);
         player.gameObject.GetComponent<Player_Controller>().enabled = false;
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene("Credits");
+        SceneManager.LoadScene("YellowScene");
     }
 }
 
