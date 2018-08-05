@@ -130,6 +130,7 @@ public class Player_Controller : MonoBehaviour
         }
         */
         
+        
         if (Input.GetButtonDown("Jump") && canJump)
         {
             rigidbody2D.velocity = Vector2.up * jumpVelocity;
@@ -144,6 +145,7 @@ public class Player_Controller : MonoBehaviour
         {
             rigidbody2D.velocity += Vector2.up * Physics2D.gravity.y * lowJumpMultiplyer * Time.deltaTime;
         }
+        
     }
 
     
