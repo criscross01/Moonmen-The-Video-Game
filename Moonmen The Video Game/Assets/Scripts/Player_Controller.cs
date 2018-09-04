@@ -16,6 +16,7 @@ public class Player_Controller : MonoBehaviour
     public float accelerationMultiplyer;
     public float decelerationMultiplyer;
     public float deathTimer;
+    public float jumpCount;
 
     private GameObject deathScreen;
     private Image image;
@@ -48,6 +49,12 @@ public class Player_Controller : MonoBehaviour
         {
             ending();
         }
+        /*
+        else if (collider.CompareTag("Fall"))
+        {
+            gameObject.GetComponent<Rigidbody2D>().gravityScale = 2;
+        }
+        */
     }
 
     //Called when player not touching something
@@ -125,15 +132,39 @@ public class Player_Controller : MonoBehaviour
         //Decides whether the "moonman" should jump or not
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && canJump)
         {
-            rigidbody2D.AddForce(new Ve]ctor2(0, jump * 100));
+            rigidbody2D.AddForce(new Vector2(0, jump * 100));
             time1 = Time.time;
         }
         */
         
         
-        if (Input.GetButtonDown("Jump") && canJump)
+        if (Input.GetButtonDown("Jump"))
         {
-            rigidbody2D.velocity = Vector2.up * jumpVelocity;
+            Scene currentScene = SceneManager.GetActiveScene();
+            if (currentScene.buildIndex == 2)
+            {
+                if (canJump == true)
+                {
+                    jumpCount = 0;
+                }
+                if (Input.GetButtonDown("Jump") && jumpCount < 1)
+                {
+                    rigidbody2D.velocity = Vector2.up * jumpVelocity;
+                    jumpCount += 1;
+                }
+            }
+            if (currentScene.buildIndex != 2)
+            {
+                if (canJump == true)
+                {
+                    jumpCount = 0;
+                }
+                if (Input.GetButtonDown("Jump") && jumpCount < 2)
+                {
+                    rigidbody2D.velocity = Vector2.up * jumpVelocity;
+                    jumpCount += 1;
+                }
+            }
         }
 
         if (rigidbody2D.velocity.y < 0)
@@ -167,8 +198,7 @@ public class Player_Controller : MonoBehaviour
         //image.CrossFadeAlpha(0.8f, 5.0f, true);
         yield return new WaitForSeconds(deathTimer);
         deathScreen.GetComponent<Canvas>().enabled = false;
-        Destroy(this.gameObject);
-        spawn.spawn();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
 

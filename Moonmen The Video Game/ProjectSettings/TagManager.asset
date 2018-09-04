@@ -6,6 +6,7 @@ TagManager:
   tags:
   - FadeToBlackTag
   - TunnelTag
+  - Fall
   layers:
   - Default
   - TransparentFX
