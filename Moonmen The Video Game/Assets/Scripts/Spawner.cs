@@ -7,6 +7,9 @@ public class Spawner : MonoBehaviour {
     public GameObject Moonman;
     public GameObject Camera;
     public GameObject Background;
+    public float x;
+    public float y;
+    public float z;
 
     private PlayerCamera camera;
     private PlayerCamera background;
@@ -28,6 +31,7 @@ public class Spawner : MonoBehaviour {
     {
 
         player = Instantiate(Moonman);
+        player.transform.position = new Vector3(x, y, z);
 
         camera.target = player.transform;
 
