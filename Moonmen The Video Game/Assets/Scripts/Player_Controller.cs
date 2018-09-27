@@ -21,7 +21,7 @@ public class Player_Controller : MonoBehaviour
     private GameObject deathScreen;
     private Image image;
     private GameObject player;
-
+    
     float speed;
 
     //Movement vars
@@ -49,13 +49,9 @@ public class Player_Controller : MonoBehaviour
         {
             ending();
         }
-        /*
-        else if (collider.CompareTag("Fall"))
-        {
-            gameObject.GetComponent<Rigidbody2D>().gravityScale = 2;
-        }
-        */
+        
     }
+    
 
     //Called when player not touching something
     void OnTriggerExit2D()
